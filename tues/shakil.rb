@@ -1,7 +1,7 @@
 def input
   puts "Welcome to Shakil the dog"
   puts "What do you say to Shakil?"
-  answer = gets.chomp.to_s
+  answer = gets.chomp.to_s.downcase
 end
 
 def case_statement
