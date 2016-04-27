@@ -1,3 +1,5 @@
+require 'pry'
+
 @states = {
   OR: "Oregon",
   FL: "Florida",
@@ -13,6 +15,8 @@
   NV: ["Reno", "Vegas"],
   UT: ["Salt Lake City", "Binbrook"]
 }
+
+
 
 def describe_state
   puts "Please enter state code"
@@ -33,11 +37,29 @@ def calculate_tax
   key = gets.chomp.to_sym
   puts "Please enter amount"
   amount = gets.chomp.to_f
-
-
+  taxes_included = @taxes[key].to_f / 100 * amount + amount
+  puts taxes_included.round(2)
 end
+
+def find_state_for_city
+  puts "Please enter city name"
+  city = gets.chomp
+  @cities.each do |k, v|
+    if v.include? city
+      puts "The state code is #{k}"
+    end
+    
+  end
+
+
+
+    # binding.pry
+end
+
 
 # puts states
 # puts cities
 # puts describe_state
-calculate_tax
+# calculate_tax
+find_state_for_city
+# puts @cities[:NV].to_s
