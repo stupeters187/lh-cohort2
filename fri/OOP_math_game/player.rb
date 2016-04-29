@@ -1,3 +1,5 @@
+require 'pry'
+
 class Player
 
   attr_accessor :name, :points, :lives
@@ -16,4 +18,7 @@ class Player
     @lives -= 1
   end
 
+  def to_s
+    @name
+  end
 end
