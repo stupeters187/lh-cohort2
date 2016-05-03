@@ -1,3 +1,4 @@
+
 # http://classic.battle.net/war3/human/units/footman.shtml
 
 class Footman < Unit

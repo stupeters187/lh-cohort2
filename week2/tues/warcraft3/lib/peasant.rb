@@ -1,3 +1,4 @@
+
 class Peasant
 
   attr_reader :health_points, :attack_power

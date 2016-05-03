@@ -1,3 +1,5 @@
+
+
 class Unit
 
   attr_reader :health_points
@@ -12,7 +14,7 @@ class Unit
   end
 
   def attack!(enemy_unit)
-    enemy_unit.damage(3)
+    enemy_unit.damage(@attack_points)
   end
 
 end
