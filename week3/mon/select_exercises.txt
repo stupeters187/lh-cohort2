@@ -1,0 +1,87 @@
+SELECT Exercises
+
+1. SELECT e.isbn 
+FROM editions AS e 
+INNER JOIN 
+publishers AS p ON p.id = e.publisher_id 
+WHERE p.id = 59;
+
+2. SELECT isbn, title 
+FROM books 
+JOIN editions ON books.id = editions.book_id 
+WHERE publisher_id = 59; 
+
+3. SELECT editions.isbn, title, stock, retail FROM 
+   editions 
+   JOIN publishers 
+   ON editions.publisher_id = publishers.id
+   JOIN books 
+   ON editions.book_id = books.id
+   JOIN stock
+   ON editions.isbn = stock.isbn
+   WHERE publishers.name = 'Random House';
+
+4. SELECT editions.isbn, title, stock, retail FROM 
+   editions 
+   JOIN publishers 
+   ON editions.publisher_id = publishers.id
+   JOIN books 
+   ON editions.book_id = books.id
+   JOIN stock
+   ON editions.isbn = stock.isbn
+   WHERE publishers.name = 'Random House' 
+   AND stock > 0;
+
+5. SELECT type,
+          CASE WHEN type = 'h' THEN 'Hardcover'
+          WHEN type = 'p' THEN 'Paperback'
+          ELSE type
+          END
+          FROM editions;
+
+6. SELECT title, publication FROM
+   books
+   FULL OUTER JOIN editions
+   on books.id = editions.book_id;
+
+7. SELECT sum(stock)
+   FROM stock; 
+
+8. SELECT round(avg(stock.cost), 2) AS "Average Cost", round(avg(stock.retail), 2) AS "Average Retail Price", round(avg(stock.retail)-avg(stock.cost), 2) AS "Average Profit" 
+FROM stock;
+
+9. SELECT editions.book_id, max(stock) 
+FROM stock
+JOIN editions on 
+stock.isbn = editions.isbn
+GROUP BY book_id
+ORDER BY max(stock.stock) DESC
+LIMIT 1;
+
+10. SELECT a.id, (a.first_name || ' ' || a.last_name) AS "Author Full Name", count(b.author_id) FROM 
+authors AS a, books AS b
+WHERE a.id = b.author_id
+GROUP BY a.id;
+
+11. 
+
+SELECT a.id, (a.first_name || ' ' || a.last_name) AS "Author Full Name", count(b.author_id) FROM 
+authors AS a, books AS b
+WHERE a.id = b.author_id
+GROUP BY a.id
+ORDER BY count DESC;
+
+12.
+
+SELECT title, COUNT(DISTINCT(editions.type)) FROM books
+INNER JOIN editions 
+ON books.id = editions.book_id
+GROUP BY title
+HAVING COUNT(DISTINCT(editions.type)) > 1;
+
+
+
+
+
+
+
