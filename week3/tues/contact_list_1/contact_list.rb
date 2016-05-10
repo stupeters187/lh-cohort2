@@ -15,6 +15,16 @@ class ContactList
     Contact.find(ARGV[1].to_i) 
   when /search/
     Contact.search(ARGV[1])
+  when /update/
+    the_contact = Contact.find(ARGV[1])
+    puts "Please enter new name"
+    new_name = STDIN.gets.chomp
+    puts "Please enter new email"
+    new_email = STDIN.gets.chomp
+    Contact.update(ARGV[1].to_i, new_name, new_email)
+  when /delete/
+    the_contact = Contact.find(ARGV[1])
+    Contact.delete(ARGV[1])
   else
     puts "Here is a list of available commands\n
           new   -Create a new contact\n
