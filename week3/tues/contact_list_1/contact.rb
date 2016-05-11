@@ -5,11 +5,11 @@ require 'pp'
 
 class Contact
 
-    @@conn = PG.connect(
-      host: 'localhost',
-      dbname: 'postgres',
-      user: 'development',
-      password: 'development')
+  @@conn = PG.connect(
+    host: 'localhost',
+    dbname: 'postgres',
+    user: 'development',
+    password: 'development')
 
   attr_accessor :name, :email, :id
   
@@ -18,15 +18,17 @@ class Contact
     @email = email
   end
 
+  # create #save instance method for use w/ class methods
+
   class << self
 
-     def all
-      @@conn.exec('SELECT * FROM contacts ORDER BY id;') do |results|
-         results.map do |c|
-         puts "#{c['id']} #{c['name']} #{c['email']} "
-        end
+   def all
+    @@conn.exec('SELECT * FROM contacts ORDER BY id;') do |results|
+       results.map do |c|
+       puts "#{c['id']} #{c['name']} #{c['email']} "
       end
     end
+  end
 
 
    def create(name, email)
@@ -66,7 +68,6 @@ class Contact
 
     
     def search(term)
-
       results = @@conn.exec_params("SELECT * FROM contacts WHERE name LIKE '%#{term}%' ") 
       results.map do |contact|
         puts "#{contact['id']}: #{contact['name']} #{(contact['email'])}"
