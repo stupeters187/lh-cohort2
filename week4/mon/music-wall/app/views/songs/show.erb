@@ -7,13 +7,13 @@
   Artist: <%= @song.artist %>
 </p>
 <p>
-  Url: <a href="#{song.url}"><%= @song.url %></a>
+  Url: <%= @song.url %></a>
 </p>
 <p>
   Created: <%= @song.created_at %>
 </p>
 <p>
-  Last Updated: <%= @song.updated_at %>
+  Last Updated: <%= @song.updated_at.to_s(:short) %>
 </p>
 
 <hr/>

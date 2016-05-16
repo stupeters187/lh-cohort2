@@ -1,3 +1,8 @@
+<div class="jumbotron">
+  <h1>Welcome to the Music Wall</h1>
+  <p>An online music community</p>
+  <p><a class="btn btn-primary btn-lg" href="/songs/new" role="button">Post a song</a></p>
+</div>
 <form class="form-inline">
   <div class="form-group">
     <label class="sr-only" for="exampleInputEmail3">Email address</label>
@@ -16,10 +21,10 @@
 </form>
 <% @songs.each do |song| %>
   <div class="song">
-    <h3><a href="/songs/<%= song.id %>"><%= song.title %><small>(by: <%= song.artist %>)</small></h3>
+    <h3><a href="/songs/<%= song.id %>"><%= song.title %></h3>
+    <h5><a href="/songs/<%= song.id %>">by: <%= song.artist %></h5>
     <p>
       <%= song.url %>
     </p>
   </div>
-  <a href="/songs/new">Post a song</a>
 <% end %>
