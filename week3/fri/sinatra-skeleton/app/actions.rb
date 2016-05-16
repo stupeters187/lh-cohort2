@@ -14,9 +14,9 @@ end
 
 post '/messages' do
   @message = Message.new(
-    title: params[:title],
     content: params[:content],
-    author: params[:author]
+    author: params[:author],
+    url: params[:url]
     )
   if @message.save
     redirect '/messages'
@@ -28,4 +28,9 @@ end
 get '/messages/:id' do
   @message = Message.find params[:id]
   erb :'/messages/show'
+end
+
+get '/messages/:author' do
+  @message = Message.find params[:author]
+  erb :'/messages/author'
 end

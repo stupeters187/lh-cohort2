@@ -1,0 +1,20 @@
+<h1><%= @song.title %></h1>
+
+<p>
+  Title: <%= @song.title %>
+</p>
+<p>
+  Artist: <%= @song.artist %>
+</p>
+<p>
+  Url: <a href="#{song.url}"><%= @song.url %></a>
+</p>
+<p>
+  Created: <%= @song.created_at %>
+</p>
+<p>
+  Last Updated: <%= @song.updated_at %>
+</p>
+
+<hr/>
+<a href="/songs">Back to All Songs</a>
