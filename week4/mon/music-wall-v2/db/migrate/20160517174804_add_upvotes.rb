@@ -1,8 +1,8 @@
 class AddUpvotes < ActiveRecord::Migration
   def change
     create_table :upvotes do |t|
-      t.string :user_id
-      t.integer :upvotes
+      t.references :user
+      t.references :song
     end
   end
 end

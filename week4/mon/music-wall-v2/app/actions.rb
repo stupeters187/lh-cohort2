@@ -1,21 +1,34 @@
 
 enable :sessions
 
+helpers do
+
+  def current_user
+    User.find_by(email: session["email"]) if session["email"]
+  end
+
+end
+
 get '/songs' do
   @songs = Song.all
   erb :'songs/index'
 end
 
 post '/songs' do
-  @song = Song.new(
-    title: params[:title],
-    artist: params[:artist],
-    url: params[:url]
+  if current_user
+
+    @song = Song.create(
+      user: current_user, 
+      title: params[:title], 
+      artist: params[:artist], 
+      url: params[:url]
     )
-  if @song.save
-    redirect '/songs'
+    if @song.save
+      redirect '/songs'
+    else
+      erb :'/songs/new'
+    end
   else
-    erb :'/songs/new'
   end
 end
 
@@ -28,13 +41,19 @@ get '/signup' do
 end
 
 post '/login' do
-  user = User.find_by(email: params[:email], password: params[:password])
-  if user.nil?
+  @user = User.find_by(email: params[:email], password: params[:password])
+  if @user.nil?
     redirect '/songs'
   else
-    session["email"] = user.email
+    session["email"] = @user.email
+    redirect '/songs'
   end
 end
+
+get '/logout' do
+  session.clear
+  redirect '/songs'
+end 
 
 
 post '/signup' do

@@ -11,7 +11,10 @@
 
 </p>
 <p>
-  Created: <%= @song.created_at %>
+  Added by: <% @song_user = User.find_by(@song.user_id) %> <%= @song_user.username %>
+</p>
+<p>
+  Created: <%= @song.created_at.to_s(:short) %>
 </p>
 <p>
   Last Updated: <%= @song.updated_at.to_s(:short) %>

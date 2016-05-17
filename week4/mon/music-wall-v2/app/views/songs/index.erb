@@ -1,9 +1,6 @@
-<div class="jumbotron">
-  <h1>Welcome to the Music Wall</h1>
-  <p>An online music community</p>
-  <p><a class="btn btn-primary btn-lg" href="/songs/new" role="button">Post a song</a></p>
-  <a href="/signup">Sign Up Here</a>
-</div>
+<% if current_user %>
+<a href="/logout" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span>Log out</a>
+<% else %>
 <form method="post" action="/login" class="form-inline">
   <div class="form-group">
     <label class="sr-only" for="exampleInputEmail3">Email address</label>
@@ -20,9 +17,23 @@
   </div>
   <button type="submit" class="btn btn-default">Sign in</button>
 </form>
+<% end %>
+<div class="jumbotron">
+  <h1>Welcome to the Music Wall</h1>
+  <p>An online music community</p>
+  <p><a class="btn btn-primary btn-lg" href="/songs/new" role="button">Post a song</a></p>
+  <% if current_user %>
+  
+  <% else %>
+    <a href="/signup">Sign Up Here</a>
+  <% end %>
+</div>
 <% @songs.each do |song| %>
+
+
   <div class="song">
-    <h3><a href="/songs/<%= song.id %>"><%= song.title %></a></h3>
+    <h3><a href="/songs/<%= song.id %>"><%= song.title %></a><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></h3>  
+
     <h5>by: <%= song.artist %></h5>
     <p>
       <a href="<%= song.url %>"><%= song.url %></a>
