@@ -1,0 +1,48 @@
+<h1><%= @song.title %></h1>
+
+<p>
+  Title: <%= @song.title %>
+</p>
+<p>
+  Artist: <%= @song.artist %>
+</p>
+<p>
+  Url:<a href="<%= @song.url %>"><%= @song.url %></a>
+
+</p>
+<p>
+  Added by: <% @song_user = User.find(@song.user_id) %> <%= @song_user.username %>
+</p>
+<p>
+  Created: <%= @song.created_at.to_s(:short) %>
+</p>
+<p>
+  Last Updated: <%= @song.updated_at.to_s(:short) %>
+</p>
+
+<hr/>
+<a href="/songs">Back to All Songs</a>
+<hr/>
+<% if current_user %>
+  <h4>Leave a review of this song</h4>
+  <form method="post" action="/reviews">
+  <textarea class="form-control" rows="3" name="review" placeholder="Your review here"></textarea>
+    <div>
+      <input type="hidden" name="id" value="<%= @song.id%>">
+      <input type="submit" value="post review">
+    </div>
+  </form>
+<% else %>
+<h4>Please <a href="/songs">Log in</a> or <a href="/signup">Sign up</a> to leave a review</h4>
+<% end %>
+<hr/>
+<% @reviews = Review.where(song_id: @song.id) %>
+<% @reviews.each do |review| %>
+  <% if review.user_id == current_user.id %>
+    <p>By: <% @song_user = User.find(@song.user_id) %> <%= @song_user.username %></p>
+    <input type="submit" value="Delete">
+  <% else %>
+    <p>Review: <%= review.review %></p>
+  <% end %>
+<% end %>
+<hr/>
