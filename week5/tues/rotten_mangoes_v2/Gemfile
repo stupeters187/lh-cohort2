@@ -36,6 +36,8 @@ gem 'pry', :group => :development
 gem 'carrierwave'
 
 gem "rmagick"
+
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
