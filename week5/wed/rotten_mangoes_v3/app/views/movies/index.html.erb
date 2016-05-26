@@ -1,0 +1,32 @@
+<h1>Rotten Mangoes</h1>
+<%= form_tag movies_path, :method => 'get' do %>
+
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<p>
+  <%= text_field_tag :search_title, params[:search_title] %>
+  <%= submit_tag "Search Movie Name", :title => nil %>
+</p>
+<p>
+  <%= text_field_tag :search_dir, params[:search_dir] %>
+  <%= submit_tag "Search Director", :director => nil %>
+</p>
+<p>
+<%= select_tag "search_duration", options_for_select([ "Select", "Under 90 minutes", "90 - 120 minutes", "Over 120 minutes"], params[:search_duration]) %>
+</p>
+<% end %> 
+<%= paginate @movies %>
+<%= link_to "Submit a movie!", new_movie_path %>
+<hr>
+<% @movies.each do |movie| %>
+
+<%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
+<%= link_to image_tag(movie.image_url(:thumb)), movie_path(movie) %>
+
+<h2><%= link_to movie.title, movie_path(movie) %></h2>
+<h3><%= formatted_date(movie.release_date) %></h3>
+<h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
+<p><%= movie.description %></p>
+<%= movie.review_average %>/10
+<hr>
+<% end %>
