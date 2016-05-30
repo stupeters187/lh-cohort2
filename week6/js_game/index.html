@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Can you Guess IT!</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link href="cover.css" rel="stylesheet">
+</head>
+<body>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="masthead clearfix">
+          <div class="inner">
+            <h3 class="masthead-brand">Bankroll: $<span id="bankAmount">100</span></h3>
+            <nav>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Game</a></li>
+                <li><a href="#">Account</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="inner cover">
+         <h1 class="cover-heading">Place Your Bets!</h1>
+         <p class="lead">
+           <form class="form-inline">
+             <div class="form-group">
+               <label class="sr-only" for="number">Number</label>
+               <div class="input-group">
+                 <div class="input-group-addon">#</div>
+                 <input type="text" class="form-control" id="number" name="number" placeholder="Number (1-10)">
+                 <div class="input-group-addon"></div>
+               </div>
+             </div>
+
+           </form>
+           <p></p>
+           <form class="form-inline">
+             <div class="form-group">
+               <label class="sr-only" for="wager">Amount (in dollars)</label>
+               <div class="input-group">
+                 <div class="input-group-addon">$</div>
+                 <input type="text" class="form-control" id="wager" name="wager" placeholder="Amount">
+                 <div class="input-group-addon"></div>
+               </div>
+             </div>
+           </form>
+         </p>
+         <p class="lead">
+         <button type="submit" id="submitWager" class="btn btn-primary">Wager Amount</button>
+         </p>
+       </div>
+       <div class="mastfoot">
+         <div class="inner">
+           <p>Brought to you by <a href="#">Jose, and his famous "Garden Pack"</a>, twitter: <a href="#">@JosesBBs</a>.</p>
+           <p class="lead">
+             <button type="submit" class="btn btn-primary reload">Refresh Game</button>
+           </p>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>  
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script src="2playergame.js"></script>
+
+
+</body>
+</html>
