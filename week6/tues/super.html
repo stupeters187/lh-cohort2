@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Super Data</title>
+  </head>
+  <body>
+    <p>Click a hero's name to see more info.</p>
+    <ul id="heroes">
+      <li data-universe="DC" data-alias="Bruce Wayne">Batman</li>      
+      <li data-universe="DC" data-alias="Diana Prince">Wonder Woman</li>
+      <li data-universe="DC" data-alias="Peter Parker">Spider-Man</li>
+    </ul>
+    <dl>
+      <dt>Name</dt>
+      <dd id="hero-name"></dd>
+      <dt>Alaias</dt>
+      <dd id="hero-alias"></dd>
+      <dt>Universe</dt>
+      <dd id="hero-universe"></dd>
+    </dl>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+      $(function (){
+        $('#heroes').on('click', 'li', function(){
+          var clickedLi = $(this);
+          $('#hero-name').text(clickedLi.text());
+          $('#hero-alias').text(clickedLi.text('alias'));
+          $('#hero-universe').text(clickedLi.text('universe'));
+
+        });
+      });
+      </script>
+  </body>
+</html>
