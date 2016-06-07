@@ -8,7 +8,7 @@
     <ul id="heroes">
       <li data-universe="DC" data-alias="Bruce Wayne">Batman</li>      
       <li data-universe="DC" data-alias="Diana Prince">Wonder Woman</li>
-      <li data-universe="DC" data-alias="Peter Parker">Spider-Man</li>
+      <li data-universe="Marvel" data-alias="Peter Parker">Spider-Man</li>
     </ul>
     <dl>
       <dt>Name</dt>
@@ -24,8 +24,8 @@
         $('#heroes').on('click', 'li', function(){
           var clickedLi = $(this);
           $('#hero-name').text(clickedLi.text());
-          $('#hero-alias').text(clickedLi.text('alias'));
-          $('#hero-universe').text(clickedLi.text('universe'));
+          $('#hero-alias').text(clickedLi.data('alias'));
+          $('#hero-universe').text(clickedLi.data('universe'));
 
         });
       });

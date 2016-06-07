@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <style>
+    html {
+      height: 200vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" id="content">
+
+        <form id="numberForm">
+
+          <input type="text" name="number" id="numberInput" />
+          <input type="submit" id="getApi" />
+
+        </form>
+
+        <h1 id="name"></h1>
+        <p><strong>Experience</strong><span id="experience"></span></p>
+      </div>
+    </div>
+  </div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    callApi(1);
+  });
+    
+
+  function callApi(number) {
+    $.ajax({
+      url: 'http://pokeapi.co/api/v2/pokemon/' + number,
+      method: 'GET'
+    }).done(function(data){
+      var name = data.name;
+      var experience = data.base_experience;
+      $('#name').text(name);
+      $('#experience').text(experience);
+    });
+  }
+</script>
+
+
+</body>
+</html>

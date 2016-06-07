@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+   <meta charset="utf-8">
+   <title>Map Squad!</title>
+   <style>
+     html, body {
+       height: 85%;
+       width: 85%;
+       margin: 0;
+       padding: 0;
+     }
+     #map {
+       height: 100%;
+     }
+   </style>
+ </head>
+ <body>
+   <div id="map"></div>
+   <div id="list"></div>
+   <script>
+     var markersArray = [
+   {
+       "title": 'My house',
+       "lat": '43.6635540',
+       "lng": '-79.3820530',
+       "description": 'My House: This is where I live.'
+   },
+   {
+       "title": 'Eatons Centre',
+       "lat": '43.6544630',
+       "lng": '-79.3806650',
+       "description": 'The Eatons Centre: A good place to go shopping'
+   },
+   {
+       "title": 'Kensington Market',
+       "lat": '43.6545240',
+       "lng": '-79.4014570',
+       "description": 'Kensington Market: A great place for fresh produce and night life.'
+   },
+   {
+       "title": 'The Annex',
+       "lat": '43.6651320',
+       "lng": '-79.4112080',
+       "description": 'The Annex: Many great restaurants and bars.'
+   }
+   ];
+     function initMap() {
+       
+       var latLng = {lat: 43.6635540, lng: -79.3820530};
+       var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 12,
+         center: latLng
+       });
+       var infoWindow = new google.maps.InfoWindow();
+       for (var i = 0; i < markersArray.length; i++) {
+         var data = markersArray[i];
+         var myLatLng = new google.maps.LatLng(data.lat, data.lng);
+         var marker = new google.maps.Marker({
+           position: myLatLng,
+           map: map,
+           draggable: true,
+           animation: google.maps.Animation.DROP,
+           title: data.title
+         });
+         
+         // $('#list').on('click',  function)
+          $('#list').append("<p>" + '<input type="checkbox" checked="on">' + data.title + "</p>");
+         (function (marker, data) {
+           google.maps.event.addListener(marker, "click", function (e) {
+             infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.description + "</div>");
+                   infoWindow.open(map, marker);
+         });
+       })(marker, data);
+      
+     }
+
+
+   }
+
+     //   function toggleBounce() {
+     //     if (marker.getAnimation() !== null) {
+     //       marker.setAnimation(null);
+     //     } else {
+     //       marker.setAnimation(google.maps.Animation.BOUNCE);
+     //     }
+     // }
+   </script>
+   <script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoedDBrYl8fU7Pla3i8rLtdEUjezC2We0&callback=initMap">
+   </script>
+ </body>
+</html>

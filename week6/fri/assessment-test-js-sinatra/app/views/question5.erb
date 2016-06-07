@@ -1,0 +1,47 @@
+<style>
+
+  /**** YOU MAY ADD OR MODIFY CSS BELOW ****/
+  .question h2 {
+    background-color: #ddd;
+    padding: 10px;
+    color: black;
+  }
+  /**** STOP MODIFYING HERE. ****/
+
+</style>
+
+<p>In the box below is an H2 element. Using HTML5 attributes and jQuery, set the box so that you can edit the content of it in place. The H2 should revert back to its last value if it is left empty.</p>
+
+<p>Edit the the page source to begin.</p>
+
+<div>
+  <h2>Edit Me!</h2>
+</div>
+
+<script>
+
+function divClicked() {
+    var divHtml = $(this).html();
+    var editableText = $("<textarea />");
+    editableText.val(divHtml);
+    $(this).replaceWith(editableText);
+    editableText.focus();
+    editableText.blur(editableTextBlurred);
+}
+
+function editableTextBlurred() {
+    var html = $(this).val();
+    var viewableText = $("<h2>");
+    viewableText.html(html);
+    $(this).replaceWith(viewableText);
+    viewableText.click(divClicked);
+}
+
+$(document).ready(function() {
+    $("h2").click(divClicked);
+});
+
+
+
+</script>
+

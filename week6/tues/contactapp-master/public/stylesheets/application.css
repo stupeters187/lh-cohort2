@@ -1,0 +1,31 @@
+h1, h2, p {
+  text-align: center;
+}
+
+#wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.btn {
+  display: block;
+  margin: 5px auto;
+}
+
+#btn {
+  display: block;
+  margin: 5px auto;
+}
+
+#btn.clicked{
+  
+}
+
+#new{
+  text-align: center;
+}
+
+#findbyID {
+  display: block;
+  margin: 5px auto;
+}
