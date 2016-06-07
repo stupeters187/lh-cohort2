@@ -1,0 +1,24 @@
+<p>Prompt the user for a word. Then add that word 10 times into the gray box. Make sure the word is added on a separate/new line each time. <strong>The word should be added once every second, instead of simultaneously.</strong></p>
+<p><strong>NOTE:</strong> The &amp;nbsp; is present in the HTML source just so that the gray box will show. It is not part of the solution, and is only there as a placeholde
+r.</p>
+<p>Edit the page source to begin.</p>
+
+<div class="question">
+    <h2>&nbsp;</h2>
+</div>
+
+<script>
+    $(function() {
+
+    var word = prompt("Give me a word!");
+    setTimeout(function(){
+
+    }
+   for(var i = 0; i < 10; i++)
+    setTimeout(function(){
+     $('.question').html('<div>' + word + '</div>')
+     }, 500 * i)
+    }
+
+  });
+</script>

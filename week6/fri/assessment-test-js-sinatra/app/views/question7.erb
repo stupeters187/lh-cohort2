@@ -1,0 +1,102 @@
+<style>
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    list-style-type: none;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    list-style-type: none;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+
+}
+</style>
+
+<p>Convert the markup below into a nav menu that has a black background, white text, and the nested UL's become visible when a user mouses over the top level LI element, but disappear when the mouse moves off, like a traditional navigation menu.</p>
+
+<p>Edit the the page source to begin.</p>
+
+<div class="dropdown">
+  <button class="dropbtn">Module 1</button>
+      <div class="dropdown-content">
+    
+      <ul>
+        <li><a href="#">Basic Ruby Syntax</a></li>
+        <li><a href="#">Methods</a></li>
+        <li><a href="#">OOP Principles</a></li>
+        <li><a href="#">Modules and Mixins</a></li>
+      </ul>
+    </li>
+    </div>
+    </div>
+<div class="dropdown">
+  <button class="dropbtn">Module 2</button>
+      <div class="dropdown-content">
+      <ul>
+        <li><a href="#">SQL Syntax</a></li>
+        <li><a href="#">ORM</a></li>
+        <li><a href="#">ActiveRecord</a></li>
+        <li><a href="#">Migrations</a></li>
+        <li><a href="#">Sinatra</a></li>
+      </ul>
+    </li>
+    </div>
+    </div>
+
+<div class="dropdown">
+  <button class="dropbtn">Module 3</button>
+      <div class="dropdown-content">
+      <ul>
+        <li><a href="#">Rails</a></li>
+        <li><a href="#">HTML5 Semantic Markup</a></li>
+        <li><a href="#">JavaScript</a></li>
+        <li><a href="#">jQuery</a></li>
+        <li><a href="#">AJAX</a></li>
+        <li><a href="#">APIs</a></li>
+      </ul>
+    </li>
+  </ul>
+  </div>
+  </div>
+</div>
+
+<script>
+
+  $(function() {
+    /**** YOU MAY MODIFY THE CODE BELOW ****/
+
+    /**** STOP MODIFYING HERE. ****/
+  });
+
+</script>
+
